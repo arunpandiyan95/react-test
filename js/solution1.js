@@ -28,12 +28,30 @@ var books = [
 var bookslist = document.querySelector('#bookslist');
 //bookslist.innerHTML = templateStr;
 
+let markRead = function() {
+    var liArr = document.getElementsByTagName("li");
+    let markreadindexes = document.querySelectorAll('.markread');
+    //console.log(markreadindexes)
+    markreadindexes.forEach(markreadindex => markreadindex.addEventListener("click", function(event){
+        //console.log(Array.from(markreadindexes).indexOf(event.target));
+        //books[Array.from(markreadindexes).indexOf(event.target)].alreadyRead = true;
+        //console.log(books);    
+        //appendNode(books);
+        liArr[Array.from(markreadindexes).indexOf(event.target)].style.color = 'red'; 
+    }))
+}
+
+
+    
 let appendNode = function(books){
 bookslist.innerHTML = 
 `<ul>
     ${getlist(books)}
 </ul>`;
+
+markRead();
 }
+
 function getlist(){
     return books.filter(book => book.alreadyRead == false).map(book => `<li>${book.title} by ${book.author}</li><input type="checkbox" class="markread" >`).join('')
 }
@@ -41,11 +59,3 @@ function getlist(){
 appendNode(books);
 
 
-let markreadindexes = document.querySelectorAll('.markread');
-//console.log(markreadindexes)
-markreadindexes.forEach(markreadindex => markreadindex.addEventListener("click", function(event){
-    //console.log(Array.from(markreadindexes).indexOf(event.target));
-    books[Array.from(markreadindexes).indexOf(event.target)].alreadyRead = true;
-    //console.log(books);    
-    appendNode(books);
-}))
