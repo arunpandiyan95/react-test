@@ -87,8 +87,8 @@ function getlist(products){
     <div class="card-body">
         <h5 class="card-title">${product.name}</h5>
         <p class="card-text">${product.price}</p>
-        <input type="number" class="qty" /><br/><br/>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <input type="number" class="qty" placeholder="Enter Quantity"/><br/><br/>
+        <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
     </div>
     <div class="card-footer text-muted">
         Quantity : ${product.quantity}
