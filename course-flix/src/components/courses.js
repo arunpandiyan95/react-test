@@ -1,4 +1,6 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
+
 
 class Courses extends React.Component{
 
@@ -23,7 +25,8 @@ class Courses extends React.Component{
                     <div className="card-body">
                         <h5 className="card-title">{course.course}</h5>
                         <p className="card-text">Duration : {course.duration}</p>
-                        <button course={course} className={course.selected === true ? "btn btn-success" : "btn btn-primary" } onClick={(event) => {this.props.handleClick(event, course)}} >Go somewhere</button>
+                        <button course={course} className={course.selected === true ? "btn btn-success" : "btn btn-primary" } onClick={(event) => {this.props.handleClick(event, course)}} >Go somewhere</button><br/><br/>
+                        <NavLink to="/details/4">Details</NavLink>
                     </div>
                     <div className="card-footer text-muted">
                         Price Rs.{course.price}

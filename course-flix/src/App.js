@@ -51,7 +51,8 @@ class App extends React.Component {
           "duration":30,
           "selected": false
         }
-      ]
+      ],
+      "selectedcourses": []
     }
 
     this.changeClassName = this.changeClassName.bind(this);
@@ -72,16 +73,21 @@ class App extends React.Component {
     let oldArr = this.state.courses;
     oldArr[oldArr.indexOf(course)].selected = true
 
+    let selCourseArr = this.state.selectedcourses;
+    selCourseArr.push(course);
+
     this.setState({
-      courses: oldArr
+      courses: oldArr,
+      selectedcourses: selCourseArr
     })
-    console.log(this.state.courses.indexOf(course))
+    console.log(this.state.selectedcourses)
   }
 
   render(){
   return (
     <div>
       <Courses data={this.state.courses} handleClick={this.changeClassName} />
+      <Courses data={this.state.selectedcourses} handleClick={this.changeClassName} />
     </div>
   );
   }
