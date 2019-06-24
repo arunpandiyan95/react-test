@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+    
 class AddCourse extends React.Component {
 
     constructor(props){
@@ -12,6 +12,11 @@ class AddCourse extends React.Component {
             invalidCourseName:''
         };
         this.handleCourseNameChange = this.handleCourseNameChange.bind(this);
+    }
+
+    componentDidMount(){
+        console.log('component loaded ');
+        console.log(this.props);
     }
 
     handleCourseNameChange(event){
@@ -42,11 +47,16 @@ class AddCourse extends React.Component {
         course.price = event.target.coursePrice.value;
         course.duration = event.target.courseDuration.value;
 
-        const promise = axios.post('https://my-json-server.typicode.com/arunpandiyan95/demojson/todolists', {
-            method: 'POST',
-            body: {todo:'task1'} 
-        })
-        promise.then(response => response.data)
+        // const promise = axios.post('https://my-json-server.typicode.com/arunpandiyan95/demojson/todolists', {
+        //     method: 'POST',
+        //     body: {todo:'task1'} 
+        // })
+        // promise.then(response => response.data)
+
+        console.log(this.props);
+        this.props.addCourse(course);
+        this.props.history.push ('/');
+       //this.props.dispatch(addCourse(course));
 
     }
    

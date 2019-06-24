@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { WrapperComponent } from './components/WrapperComponent';
-import { WrapperComponentChild } from './components/WrapperComponent';
 
 class App extends React.Component {
 

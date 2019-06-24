@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route, NavLink} from 'react-router-dom';
-import Addcourse from './components/addcourse';
+import {WrapperAddCourseComponent} from './components/Wrapperaddcourse';
 import Coursedetails from './components/coursedetails';
 import {createStore} from 'redux';
 import rootReducer from './redux/reducer';
@@ -35,7 +35,7 @@ ReactDOM.render(
         </div>
         </nav>
         <Route path="/" exact component={App} />
-        <Route path="/add" exact component={Addcourse} />
+        <Route path="/add" exact component={WrapperAddCourseComponent} />
         <Route path="/details/:id" exact render = {
             ({match}) => {
                return  (<Coursedetails courses={[]} courseId={match.params.id} />)
