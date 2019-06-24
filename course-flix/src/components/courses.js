@@ -10,7 +10,7 @@ class Courses extends React.Component{
     }
 
     componentDidMount(){
-        console.log('component mounted ....')
+        console.log(this.props.courses)
         //this.props.removeCourse(2);
     }
 
@@ -32,7 +32,7 @@ class Courses extends React.Component{
                     <div className="card-body">
                         <h5 className="card-title">{course.name}</h5>
                         <p className="card-text">Duration : {course.duration}</p>
-                        <button course={course} className={course.selected === true ? "btn btn-success" : "btn btn-primary" } onClick={(event) => {this.props.handleClick(event, course)}} >Go somewhere</button><br/><br/>
+                        <button course={course} className={course.selected === true ? "btn btn-success" : "btn btn-primary" } onClick={(event) => {this.props.changeButtonClass(event, course)}} >Go somewhere</button><br/><br/>
                         <NavLink to={'/details/'+course.id}>Details</NavLink>
                     </div>
                     <div className="card-footer text-muted">

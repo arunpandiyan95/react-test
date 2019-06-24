@@ -17,3 +17,13 @@ export function removeCourse(index){
         index
     }
 }
+
+//action generators
+export function changeButtonClass(event, course){
+    //action is just a javascript object
+    return {
+        type:"SELECT_COURSE",
+        event:event,
+        course:course
+    }
+}
