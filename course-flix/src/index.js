@@ -6,9 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Route, NavLink} from 'react-router-dom';
 import Addcourse from './components/addcourse';
 import Coursedetails from './components/coursedetails';
+import {createStore} from 'redux';
+import rootReducer from './redux/reducer';
+import {Provider} from 'react-redux';
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(
     <div className="">
+    <Provider store={store}>
     <BrowserRouter>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <NavLink  className="navbar-brand" exact to="/" >React</NavLink>
@@ -36,6 +42,7 @@ ReactDOM.render(
             }
         } />
     </BrowserRouter>
+    </Provider>
     </div>, 
     document.getElementById('root'));
 

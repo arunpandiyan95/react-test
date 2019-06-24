@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import Courses from './components/courses';
+import { WrapperComponent } from './components/WrapperComponent';
+import { WrapperComponentChild } from './components/WrapperComponent';
 
 class App extends React.Component {
 
@@ -86,8 +87,7 @@ class App extends React.Component {
   render(){
   return (
     <div>
-      <Courses data={this.state.courses} handleClick={this.changeClassName} />
-      <Courses data={this.state.selectedcourses} handleClick={this.changeClassName} />
+      <WrapperComponent />
     </div>
   );
   }

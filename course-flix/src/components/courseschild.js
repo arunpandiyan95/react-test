@@ -2,18 +2,12 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 
 
-class Courses extends React.Component{
+class Courseschild extends React.Component{
 
     constructor(props){
         super(props);
 
     }
-
-    componentDidMount(){
-        console.log('component mounted ....')
-        this.props.removeCourse(2);
-    }
-
 
     render(){
     return (
@@ -49,4 +43,4 @@ class Courses extends React.Component{
     }
 }
 
-export default Courses;
+export default Courseschild;
