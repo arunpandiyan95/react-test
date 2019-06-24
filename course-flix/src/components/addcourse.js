@@ -43,6 +43,7 @@ class AddCourse extends React.Component {
         event.preventDefault();
 
         let course={};
+        course.id = Math.floor((Math.random() * 10) + 1);
         course.name = event.target.courseName.value;
         course.price = event.target.coursePrice.value;
         course.duration = event.target.courseDuration.value;
