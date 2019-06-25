@@ -47,7 +47,7 @@ export class Studentlist extends React.Component{
             <tbody>
 
                 {
-                    this.props.students.slice(this.state.currentindex - (+1), this.state.currentindex * Number(this.state.perpagecount)).map(student => <tr key={student.id}>
+                    this.props.students.slice((this.state.currentindex * Number(this.state.perpagecount))- (+this.state.perpagecount), this.state.currentindex * Number(this.state.perpagecount)).map(student => <tr key={student.id}>
                         <th scope="row">{student.id}</th>
                         <td>{student.id}</td>
                         <td>{student.name}</td>
