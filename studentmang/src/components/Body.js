@@ -4,14 +4,31 @@ import {WrapperAddStudentComponent} from './WrapperStudentListComponent';
 
 export class Body extends React.Component{
 
-    render(){
+    constructor(props)
+    {
+        super(props);
+    }
 
-        return (
-            <div>
-            <h2>Student List</h2>
-            <WrapperStudentListComponent />
-            <WrapperAddStudentComponent />
-            </div>
-        );
+    render(){
+        //console.log(this)
+        if(this.props.match.url === '/')
+        {
+            return (
+                <div>
+                <h2>Student List</h2>
+                <WrapperStudentListComponent />
+                </div>
+            );
+        }
+        else if(this.props.match.url === '/add')
+        {
+            return (
+                <div>
+                <h2>Student List</h2>
+                <WrapperAddStudentComponent />
+                </div>
+            );
+        }
+        
     }
 }

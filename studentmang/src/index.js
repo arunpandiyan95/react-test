@@ -13,6 +13,7 @@ ReactDOM.render(
     <Provider store={store}>
     <BrowserRouter>
     <Route path="/" exact component={App} />
+    <Route path="/add" exact component={App} />
     </BrowserRouter>
     </Provider>, 
 

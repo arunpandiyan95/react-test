@@ -9,7 +9,7 @@ export class Leftnavi extends React.Component{
         return (
             <div className="nav flex-column"  aria-orientation="vertical">
             <NavLink className="nav-link"  exact to="/"  >List Student</NavLink>
-            <NavLink className="nav-link"  exact to="/" >Add Student</NavLink>
+            <NavLink className="nav-link"  exact to="/add" >Add Student</NavLink>
             </div>
         );
     }

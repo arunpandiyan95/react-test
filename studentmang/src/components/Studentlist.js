@@ -4,7 +4,33 @@ import {NavLink} from 'react-router-dom';
 
 export class Studentlist extends React.Component{
 
+    constructor(props){
+        super(props);
+        this.state ={
+            perpagecount: 2,
+            currentindex: 1
+        }      
+
+    }
+
+    handlePagination(pageNo)
+    {
+        this.setState({
+            currentindex: pageNo + Number(1)
+        })
+        //console.log(pageNo + Number(1));
+    }
+
     render(){
+        //console.log(this.state.currentindex)
+        let pagecount = Math.round(this.props.students.length / this.state.perpagecount);
+        
+        let pageLinks = [];
+        let pageNo = 1;
+        for(let i = 0; i < pagecount; i++){
+        pageLinks.push(<li className="page-item" key={i}><button onClick={() => {this.handlePagination(i)}} className="page-link" >{pageNo}</button></li>);
+        pageNo++;
+        }
 
         return (
             <div>
@@ -21,7 +47,7 @@ export class Studentlist extends React.Component{
             <tbody>
 
                 {
-                    this.props.students.map(student => <tr key={student.id}>
+                    this.props.students.slice(this.state.currentindex - (+1), this.state.currentindex * Number(this.state.perpagecount)).map(student => <tr key={student.id}>
                         <th scope="row">{student.id}</th>
                         <td>{student.id}</td>
                         <td>{student.name}</td>
@@ -38,9 +64,9 @@ export class Studentlist extends React.Component{
             <nav aria-label="Page navigation example">
             <ul className="pagination justify-content-center">
             <li className="page-item"><button className="page-link" >Previous</button></li>
-            <li className="page-item"><button className="page-link" >1</button></li>
-            <li className="page-item"><button className="page-link" >2</button></li>
-            <li className="page-item"><button className="page-link" >3</button></li>
+
+            { pageLinks }
+
             <li className="page-item"><button className="page-link" >Next</button></li>
             </ul>
             </nav>

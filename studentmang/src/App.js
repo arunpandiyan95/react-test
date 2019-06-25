@@ -3,7 +3,7 @@ import {Header} from './components/Header';
 import {Leftnavi} from './components/Leftnavi';
 import {Body} from './components/Body';
 
-function App() {
+function App(props) {
   return (
     <div>
       <Header />
@@ -12,7 +12,7 @@ function App() {
           <Leftnavi />
         </div>
         <div className="col-lg-10" style={{border: 1+'px solid #ccc', height: 750}}>
-          <Body />
+          <Body match={props.match} />
         </div>
       </div>
     </div>
